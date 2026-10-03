@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Donate Food | ResQMeal</title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="dashboard-nav">
+
+        <div class="logo">
+            🍃 ResQMeal
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="donate.html">
+                Donate Food
+            </a>
+
+            <a href="food.html">
+                Find Food
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <button id="logoutBtn">
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- DONATE SECTION -->
+
+    <main class="dashboard-container">
+
+
+        <section class="welcome-section">
+
+            <p class="small-title">
+                SHARE FOOD • SAVE LIVES
+            </p>
+
+
+            <h1>
+                Donate <span>Food.</span>
+            </h1>
+
+
+            <p>
+                Have extra food? Share it with people
+                who need it instead of letting it go to waste.
+            </p>
+
+        </section>
+
+
+        <!-- DONATION FORM -->
+
+        <section class="donation-form-card">
+
+            <h2>
+                Food Donation Details
+            </h2>
+
+
+            <p>
+                Enter the details of the food you want to donate.
+            </p>
+
+
+            <form id="donationForm">
+
+
+                <!-- FOOD NAME -->
+
+                <label>
+                    Food Name
+                </label>
+
+                <input
+                    type="text"
+                    id="foodName"
+                    placeholder="Example: Vegetable Rice"
+                    required
+                >
+
+
+                <!-- QUANTITY -->
+
+                <label>
+                    Quantity
+                </label>
+
+                <input
+                    type="text"
+                    id="quantity"
+                    placeholder="Example: 10 plates"
+                    required
+                >
+
+
+                <!-- LOCATION -->
+
+                <label>
+                    Location
+                </label>
+
+                <input
+                    type="text"
+                    id="location"
+                    placeholder="Example: Tirupati"
+                    required
+                >
+
+
+                <!-- PICKUP TIME -->
+
+                <label>
+                    Pickup Time
+                </label>
+
+                <input
+                    type="datetime-local"
+                    id="pickupTime"
+                    required
+                >
+
+
+                <!-- DESCRIPTION -->
+
+                <label>
+                    Description
+                </label>
+
+                <textarea
+                    id="description"
+                    placeholder="Describe the food..."
+                    rows="5"
+                ></textarea>
+
+
+                <!-- SUBMIT BUTTON -->
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+                    🍱 Donate Food
+                </button>
+
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase.js"></script>
+
+    <script src="js/donate.js"></script>
+
+    <script src="js/dashboard.js"></script>
+
+
+</body>
+
+</html>

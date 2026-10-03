@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | ResQMeal</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <nav class="dashboard-nav">
+
+        <div class="logo">
+            🍃 ResQMeal
+        </div>
+
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="donate.html">Donate Food</a>
+            <a href="food.html">Find Food</a>
+            <a href="profile.html">Profile</a>
+            <button id="logoutBtn">Logout</button>
+        </div>
+
+    </nav>
+
+
+    <main class="dashboard-container">
+
+        <section class="welcome-section">
+
+            <p class="small-title">WELCOME TO RESQMEAL</p>
+
+            <h1>
+                Rescue Food.<br>
+                <span>Help People.</span>
+            </h1>
+
+            <p>
+                Connect surplus food with people who need it.
+                Every meal rescued makes a difference.
+            </p>
+
+            <div class="dashboard-buttons">
+
+                <a href="donate.html" class="primary-btn">
+                    🍱 Donate Food
+                </a>
+
+                <a href="food.html" class="secondary-btn">
+                    🔎 Find Food
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <section class="dashboard-cards">
+
+            <div class="dashboard-card">
+                <div class="card-icon">🍱</div>
+                <h2>Donate Food</h2>
+                <p>
+                    Have extra food? Share it with someone
+                    who needs it.
+                </p>
+                <a href="donate.html">Donate →</a>
+            </div>
+
+
+            <div class="dashboard-card">
+                <div class="card-icon">🥗</div>
+                <h2>Find Food</h2>
+                <p>
+                    Discover available food donations
+                    near you.
+                </p>
+                <a href="food.html">Find Food →</a>
+            </div>
+
+
+            <div class="dashboard-card">
+                <div class="card-icon">👤</div>
+                <h2>Your Profile</h2>
+                <p>
+                    View and manage your ResQMeal
+                    account.
+                </p>
+                <a href="profile.html">View Profile →</a>
+            </div>
+
+        </section>
+
+
+       <section class="stats-section">
+
+    <div>
+        <h2 id="mealsRescued">0</h2>
+        <p>Meals Rescued</p>
+    </div>
+
+    <div>
+        <h2 id="foodDonations">0</h2>
+        <p>Food Donations</p>
+    </div>
+
+    <div>
+        <h2 id="peopleHelped">0</h2>
+        <p>People Helped</p>
+    </div>
+
+</section>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

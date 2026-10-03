@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ResQMeal | Rescue Food. Reduce Waste.</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         NAVBAR
+    ================================== -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <span>🍃</span>
+            ResQMeal
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="index.html" class="active">
+                Home
+            </a>
+
+            <a href="food.html">
+                Find Food
+            </a>
+
+            <a href="donate.html">
+                Donate
+            </a>
+
+            <a href="login.html" class="login-link">
+                Login
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =================================
+         HERO
+    ================================== -->
+
+    <main>
+
+        <section class="hero">
+
+
+            <!-- LEFT SIDE -->
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    <span class="pulse-dot"></span>
+                    FOOD RESCUE NETWORK
+                </div>
+
+
+                <h1>
+
+                    Give food.
+                    <br>
+
+                    <span>Give hope.</span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Rescue surplus food and connect it with
+                    people who need it. Every meal saved is
+                    a small step towards a better community.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="donate.html"
+                       class="primary-button">
+
+                        Donate Food
+
+                        <span>→</span>
+
+                    </a>
+
+
+                    <a href="food.html"
+                       class="secondary-button">
+
+                        Find Food
+
+                    </a>
+
+                </div>
+
+
+                <div class="hero-note">
+
+                    🌱 Together, we're turning extra food
+                    into meaningful meals.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RIGHT SIDE -->
+
+            <div class="hero-visual">
+
+
+                <div class="hero-image-card">
+
+                    <div class="image-overlay"></div>
+
+                    <div class="food-illustration">
+
+                        <div class="plate">
+                            🍱
+                        </div>
+
+                        <div class="food-item item-one">
+                            🥗
+                        </div>
+
+                        <div class="food-item item-two">
+                            🍎
+                        </div>
+
+                        <div class="food-item item-three">
+                            🥖
+                        </div>
+
+                    </div>
+
+
+                    <div class="image-text">
+
+                        <span>
+                            TODAY'S MISSION
+                        </span>
+
+                        <strong>
+                            Save a meal.
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FLOATING CARD -->
+
+                <div class="floating-card floating-top">
+
+                    <div class="floating-icon">
+                        ❤️
+                    </div>
+
+                    <div>
+                        <strong>
+                            Food matters
+                        </strong>
+
+                        <small>
+                            Waste less. Share more.
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="floating-card floating-bottom">
+
+                    <div class="mini-number"
+                         id="heroMeals">
+
+                        0
+
+                    </div>
+
+                    <div>
+                        <strong>
+                            Meals rescued
+                        </strong>
+
+                        <small>
+                            and counting
+                        </small>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             STATS
+        ================================== -->
+
+        <section class="stats-wrapper">
+
+            <div class="stats-card">
+
+
+                <div class="stat">
+
+                    <span class="stat-number"
+                          id="mealsRescued">
+
+                        0
+
+                    </span>
+
+                    <span class="stat-label">
+                        Meals Rescued
+                    </span>
+
+                </div>
+
+
+                <div class="stat-divider"></div>
+
+
+                <div class="stat">
+
+                    <span class="stat-number"
+                          id="foodDonors">
+
+                        0
+
+                    </span>
+
+                    <span class="stat-label">
+                        Food Donors
+                    </span>
+
+                </div>
+
+
+                <div class="stat-divider"></div>
+
+
+                <div class="stat">
+
+                    <span class="stat-number"
+                          id="peopleHelped">
+
+                        0
+
+                    </span>
+
+                    <span class="stat-label">
+                        People Helped
+                    </span>
+
+                </div>
+
+
+                <div class="stat-divider"></div>
+
+
+                <div class="stat">
+
+                    <span class="stat-number"
+                          id="foodSaved">
+
+                        0%
+
+                    </span>
+
+                    <span class="stat-label">
+                        Food Saved
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             MISSION
+        ================================== -->
+
+        <section class="mission-section">
+
+
+            <div class="section-heading">
+
+                <span>
+                    OUR MISSION
+                </span>
+
+                <h2>
+                    Small actions.
+                    <br>
+                    <em>Big impact.</em>
+                </h2>
+
+                <p>
+                    ResQMeal makes it simple to turn surplus
+                    food into an opportunity to help someone.
+                </p>
+
+            </div>
+
+
+
+            <div class="steps-grid">
+
+
+                <!-- STEP 1 -->
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <div class="step-icon">
+                        🍱
+                    </div>
+
+                    <h3>
+                        Donate
+                    </h3>
+
+                    <p>
+                        Have extra food? Share the details
+                        and let someone nearby discover it.
+                    </p>
+
+                    <a href="donate.html">
+                        Start donating →
+                    </a>
+
+                </div>
+
+
+
+                <!-- STEP 2 -->
+
+                <div class="step-card featured-step">
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <div class="step-icon">
+                        🤝
+                    </div>
+
+                    <h3>
+                        Connect
+                    </h3>
+
+                    <p>
+                        People can discover available food
+                        donations and claim what they need.
+                    </p>
+
+                    <a href="food.html">
+                        Find food →
+                    </a>
+
+                </div>
+
+
+
+                <!-- STEP 3 -->
+
+                <div class="step-card">
+
+                    <div class="step-number">
+                        03
+                    </div>
+
+                    <div class="step-icon">
+                        🌱
+                    </div>
+
+                    <h3>
+                        Rescue
+                    </h3>
+
+                    <p>
+                        Food reaches people instead of
+                        ending up as unnecessary waste.
+                    </p>
+
+                    <a href="food.html">
+                        Make an impact →
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             CTA
+        ================================== -->
+
+        <section class="cta-section">
+
+            <div class="cta-decoration decoration-one">
+                🍃
+            </div>
+
+            <div class="cta-decoration decoration-two">
+                ✦
+            </div>
+
+
+            <div class="cta-content">
+
+                <span>
+                    ONE MEAL CAN MAKE A DIFFERENCE
+                </span>
+
+                <h2>
+                    Give your extra food
+                    <br>
+                    a second chance.
+                </h2>
+
+                <p>
+                    Join ResQMeal and help create a community
+                    where good food never goes to waste.
+                </p>
+
+
+                <div class="cta-buttons">
+
+                    <a href="donate.html"
+                       class="cta-primary">
+
+                        Donate Food →
+
+                    </a>
+
+                    <a href="login.html"
+                       class="cta-secondary">
+
+                        Join ResQMeal
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =================================
+         FOOTER
+    ================================== -->
+
+    <footer>
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <a href="index.html"
+                   class="logo">
+
+                    <span>🍃</span>
+                    ResQMeal
+
+                </a>
+
+                <p>
+                    Rescue food. Reduce waste.
+                    Feed communities.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="food.html">
+                    Find Food
+                </a>
+
+                <a href="donate.html">
+                    Donate
+                </a>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 ResQMeal
+            </p>
+
+            <p>
+                Made with 🌱 for a better community.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =================================
+         SCRIPTS
+    ================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+    </script>
+
+    <script src="js/supabase.js">
+    </script>
+
+    <script src="js/main.js">
+    </script>
+
+
+    <!-- Hero statistic -->
+
+    <script>
+
+        setTimeout(function () {
+
+            const mainMeals =
+                document.getElementById("mealsRescued");
+
+            const heroMeals =
+                document.getElementById("heroMeals");
+
+            if (mainMeals && heroMeals) {
+
+                heroMeals.textContent =
+                    mainMeals.textContent;
+
+            }
+
+        }, 1000);
+
+    </script>
+
+
+</body>
+
+</html>
