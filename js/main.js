@@ -7,30 +7,16 @@
 // GET ELEMENTS
 // ======================================
 
-const mealsRescued =
-    document.getElementById("mealsRescued");
+const mealsRescued = document.getElementById("mealsRescued");
+const heroMeals = document.getElementById("heroMeals");
+const foodDonors = document.getElementById("foodDonors");
+const peopleHelped = document.getElementById("peopleHelped");
+const foodSaved = document.getElementById("foodSaved");
 
-const foodDonors =
-    document.getElementById("foodDonors");
-
-const peopleHelped =
-    document.getElementById("peopleHelped");
-
-const foodSaved =
-    document.getElementById("foodSaved");
-
-
-const footerMeals =
-    document.getElementById("footerMeals");
-
-const footerDonors =
-    document.getElementById("footerDonors");
-
-const footerPeople =
-    document.getElementById("footerPeople");
-
-const footerSaved =
-    document.getElementById("footerSaved");
+const footerMeals = document.getElementById("footerMeals");
+const footerDonors = document.getElementById("footerDonors");
+const footerPeople = document.getElementById("footerPeople");
+const footerSaved = document.getElementById("footerSaved");
 
 
 // ======================================
@@ -38,166 +24,94 @@ const footerSaved =
 // ======================================
 
 async function loadStatistics() {
-
     try {
-
         // Get all food donations
-
-        const {
-            data: donations,
-            error
-        } = await supabaseClient
+        const { data: donations, error } = await supabaseClient
             .from("food_donations")
             .select("*");
 
-
-        // Check database error
-
         if (error) {
-
-            console.log(
-                "Statistics error:",
-                error
-            );
-
+            console.error("Statistics error:", error);
             return;
         }
 
+        const donationList = donations || [];
 
         // ==================================
         // TOTAL DONATIONS
         // ==================================
 
-        const totalDonations =
-            donations.length;
-
+        const totalDonations = donationList.length;
 
         // ==================================
         // FOOD DONORS
         // ==================================
 
         const donorIds = new Set();
-
-
-        donations.forEach(function (food) {
-
+        donationList.forEach(function (food) {
             if (food.donated_by) {
-
                 donorIds.add(food.donated_by);
-
             }
-
         });
-
-
-        const totalDonors =
-            donorIds.size;
-
+        const totalDonors = donorIds.size;
 
         // ==================================
         // PEOPLE HELPED
         // ==================================
 
         const peopleIds = new Set();
+        donationList.forEach(function (food) {
+            const isClaimed = food.status === "claimed" ||
+                              food.status === "picked_up" ||
+                              food.claimed === true;
 
-
-        donations.forEach(function (food) {
-
-            if (
-                food.claimed_by &&
-                (
-                    food.status === "claimed" ||
-                    food.status === "picked_up"
-                )
-            ) {
-
-                peopleIds.add(
-                    food.claimed_by
-                );
-
+            if (food.claimed_by && isClaimed) {
+                peopleIds.add(food.claimed_by);
             }
-
         });
-
-
-        const totalPeople =
-            peopleIds.size;
-
+        const totalPeople = peopleIds.size;
 
         // ==================================
         // FOOD SAVED
         // ==================================
 
         let savedPercentage = 0;
-
-
         if (totalDonations > 0) {
-
-            const rescuedDonations =
-                donations.filter(function (food) {
-
-                    return (
-                        food.status === "claimed" ||
-                        food.status === "picked_up"
-                    );
-
-                });
-
-
-            savedPercentage =
-                Math.round(
-                    (
-                        rescuedDonations.length /
-                        totalDonations
-                    ) * 100
+            const rescuedDonations = donationList.filter(function (food) {
+                return (
+                    food.status === "claimed" ||
+                    food.status === "picked_up" ||
+                    food.claimed === true
                 );
+            });
 
+            savedPercentage = Math.round(
+                (rescuedDonations.length / totalDonations) * 100
+            );
         }
 
-
         // ==================================
-        // UPDATE MAIN STATISTICS
-        // ==================================
-
-        mealsRescued.textContent =
-            totalDonations;
-
-        foodDonors.textContent =
-            totalDonors;
-
-        peopleHelped.textContent =
-            totalPeople;
-
-        foodSaved.textContent =
-            savedPercentage + "%";
-
-
-        // ==================================
-        // UPDATE FOOTER
+        // UPDATE MAIN & HERO STATISTICS
         // ==================================
 
-        footerMeals.textContent =
-            totalDonations;
+        if (mealsRescued) mealsRescued.textContent = totalDonations;
+        if (heroMeals) heroMeals.textContent = totalDonations;
+        if (foodDonors) foodDonors.textContent = totalDonors;
+        if (peopleHelped) peopleHelped.textContent = totalPeople;
+        if (foodSaved) foodSaved.textContent = savedPercentage + "%";
 
-        footerDonors.textContent =
-            totalDonors;
+        // ==================================
+        // UPDATE FOOTER IF PRESENT
+        // ==================================
 
-        footerPeople.textContent =
-            totalPeople;
-
-        footerSaved.textContent =
-            savedPercentage + "%";
-
+        if (footerMeals) footerMeals.textContent = totalDonations;
+        if (footerDonors) footerDonors.textContent = totalDonors;
+        if (footerPeople) footerPeople.textContent = totalPeople;
+        if (footerSaved) footerSaved.textContent = savedPercentage + "%";
 
     } catch (error) {
-
-        console.log(
-            "Unexpected error:",
-            error
-        );
-
+        console.error("Unexpected error loading statistics:", error);
     }
-
 }
 
 

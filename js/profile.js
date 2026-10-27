@@ -58,8 +58,8 @@ async function loadProfile() {
     // ===============================
 
     profileName.textContent =
-        user.user_metadata.full_name ||
-        "ResQMeal User";
+        (user.user_metadata && user.user_metadata.full_name) ||
+        (user.email ? user.email.split("@")[0] : "ResQMeal User");
 
     profileEmail.textContent =
         user.email;

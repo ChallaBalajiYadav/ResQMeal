@@ -1,101 +1,156 @@
+/* ================================
+   RESET
+================================ */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background: #f5f8f2;
+    background: #f5f8f3;
     color: #173b2a;
 }
 
 
-/* =========================
+/* ================================
    NAVBAR
-========================= */
+================================ */
 
 .dashboard-nav {
     width: 100%;
-    padding: 20px 7%;
+    padding: 18px 7%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: white;
-    border-bottom: 1px solid #e4eadf;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-bottom: 1px solid #e1e9df;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    box-shadow: 0 4px 20px rgba(30, 70, 40, 0.05);
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 25px;
     font-weight: bold;
     color: #287a45;
+
+    transition: 0.3s;
+}
+
+.logo:hover {
+    transform: translateY(-2px);
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 26px;
 }
 
 .nav-links a {
+    color: #40594a;
     text-decoration: none;
-    color: #365443;
+
     font-size: 15px;
-    font-weight: 500;
-    transition: 0.3s;
+    font-weight: 600;
+
+    transition: 0.25s;
 }
 
 .nav-links a:hover {
     color: #287a45;
+    transform: translateY(-2px);
 }
 
 .nav-links button {
     border: none;
+
     background: #287a45;
     color: white;
+
     padding: 10px 18px;
-    border-radius: 8px;
-    cursor: pointer;
+
+    border-radius: 9px;
+
     font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow: 0 5px 15px rgba(40, 122, 69, 0.18);
 }
 
 .nav-links button:hover {
     background: #1e6036;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(40, 122, 69, 0.25);
 }
 
 
-/* =========================
-   MAIN CONTAINER
-========================= */
+/* ================================
+   MAIN
+================================ */
 
 .dashboard-container {
     width: 86%;
     max-width: 1200px;
+
     margin: auto;
 }
 
 
-/* =========================
-   WELCOME SECTION
-========================= */
+/* ================================
+   WELCOME
+================================ */
 
 .welcome-section {
     padding: 80px 0 60px;
-    max-width: 750px;
+
+    animation: welcomeAnimation 0.7s ease;
 }
 
 .small-title {
-    color: #3c9b5d;
-    font-size: 13px;
+    display: inline-block;
+
+    color: #287a45;
+
+    font-size: 12px;
     font-weight: bold;
+
     letter-spacing: 2px;
-    margin-bottom: 18px;
+
+    background: #e7f3e9;
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    margin-bottom: 20px;
 }
 
 .welcome-section h1 {
-    font-size: 58px;
+    font-size: 60px;
+
     line-height: 1.05;
-    margin-bottom: 25px;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 24px;
 }
 
 .welcome-section h1 span {
@@ -103,210 +158,384 @@ body {
 }
 
 .welcome-section p:not(.small-title) {
-    color: #65776b;
-    font-size: 18px;
-    line-height: 1.7;
     max-width: 650px;
+
+    color: #66766c;
+
+    font-size: 18px;
+
+    line-height: 1.7;
 }
 
 
-/* =========================
+/* ================================
    BUTTONS
-========================= */
+================================ */
 
 .dashboard-buttons {
     display: flex;
+
     gap: 15px;
+
     margin-top: 30px;
 }
 
 .primary-btn,
 .secondary-btn {
-    text-decoration: none;
+    display: inline-block;
+
     padding: 14px 24px;
+
     border-radius: 10px;
+
+    text-decoration: none;
+
     font-weight: bold;
+
     transition: 0.3s;
 }
 
 .primary-btn {
     background: #287a45;
+
     color: white;
+
+    box-shadow: 0 7px 18px rgba(40, 122, 69, 0.18);
 }
 
 .primary-btn:hover {
     background: #1e6036;
-    transform: translateY(-2px);
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 13px 25px rgba(40, 122, 69, 0.25);
 }
 
 .secondary-btn {
     background: white;
+
     color: #287a45;
-    border: 1px solid #cddbcf;
+
+    border: 1px solid #d2dfd2;
 }
 
 .secondary-btn:hover {
-    background: #edf5ed;
-    transform: translateY(-2px);
+    background: #edf6ee;
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 10px 20px rgba(30, 70, 40, 0.08);
 }
 
 
-/* =========================
+/* ================================
    DASHBOARD CARDS
-========================= */
+================================ */
 
 .dashboard-cards {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+
+    gap: 24px;
+
     margin-bottom: 50px;
 }
 
 .dashboard-card {
+    position: relative;
     background: white;
-    padding: 30px;
-    border-radius: 18px;
-    border: 1px solid #e2e9df;
+    padding: 0;
+    border-radius: 20px;
+    border: 1px solid #e1e9df;
     box-shadow: 0 8px 25px rgba(30, 70, 40, 0.06);
-    transition: 0.3s;
+    transition: 0.35s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Green line on top */
+.dashboard-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #3c9b5d;
+    z-index: 3;
 }
 
 .dashboard-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 30px rgba(30, 70, 40, 0.1);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(30, 70, 40, 0.12);
+    border-color: #c9dec9;
 }
 
-.card-icon {
-    font-size: 38px;
-    margin-bottom: 20px;
+/* Card Image Header */
+.card-image-container {
+    position: relative;
+    width: 100%;
+    height: 175px;
+    overflow: hidden;
+    background: #eef5ee;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dashboard-card:hover .card-image {
+    transform: scale(1.08);
+}
+
+.card-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 14px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #173b2a;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 13px;
+    border-radius: 20px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    z-index: 2;
+}
+
+.dashboard-card .card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .dashboard-card h2 {
     font-size: 22px;
-    margin-bottom: 12px;
-}
-
-.dashboard-card p {
-    color: #718078;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.dashboard-card a {
-    color: #287a45;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-
-/* =========================
-   STATS
-========================= */
-
-.stats-section {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background: #287a45;
-    color: white;
-    border-radius: 20px;
-    padding: 35px;
-    margin-bottom: 60px;
-    text-align: center;
-}
-
-.stats-section h2 {
-    font-size: 36px;
-    margin-bottom: 8px;
-}
-
-.stats-section p {
-    opacity: 0.9;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 800px) {
-
-    .dashboard-nav {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .welcome-section {
-        padding: 50px 0;
-    }
-
-    .welcome-section h1 {
-        font-size: 42px;
-    }
-
-    .dashboard-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .stats-section {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-}
-/* =========================
-   DONATION FORM
-========================= */
-
-.donation-form-card {
-    max-width: 750px;
-    margin: 0 auto 70px;
-    background: white;
-    padding: 40px;
-    border-radius: 22px;
-    border: 1px solid #e2e9df;
-    box-shadow: 0 12px 35px rgba(30, 70, 40, 0.08);
-}
-
-.donation-form-card h2 {
-    font-size: 28px;
     margin-bottom: 10px;
     color: #173b2a;
 }
 
+.dashboard-card p {
+    color: #65776b;
+    line-height: 1.6;
+    margin-bottom: 22px;
+    font-size: 14.5px;
+    flex: 1;
+}
+
+/* Card Action Button */
+.card-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: #edf7ef;
+    color: #287a45;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border: 1px solid #d4ebd7;
+}
+
+.card-action-btn .arrow {
+    transition: transform 0.25s ease;
+    font-size: 16px;
+}
+
+.card-action-btn:hover {
+    background: #287a45;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(40, 122, 69, 0.25);
+    transform: translateY(-2px);
+    border-color: #287a45;
+}
+
+.card-action-btn:hover .arrow {
+    transform: translateX(4px);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #edf7ef;
+    border-radius: 16px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.dashboard-card:hover .card-icon {
+    transform: rotate(-5deg) scale(1.1);
+}
+
+
+/* ================================
+   STATS
+================================ */
+
+.stats-section {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    background: #287a45;
+
+    color: white;
+
+    border-radius: 20px;
+
+    padding: 38px;
+
+    margin-bottom: 60px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 35px rgba(40, 122, 69, 0.2);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.stats-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border-radius: 50%;
+
+    right: -60px;
+    top: -80px;
+}
+
+.stats-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border-radius: 50%;
+
+    left: -50px;
+    bottom: -60px;
+}
+
+.stats-section > div {
+    position: relative;
+
+    z-index: 2;
+}
+
+.stats-section h2 {
+    font-size: 38px;
+
+    margin-bottom: 8px;
+}
+
+.stats-section p {
+    font-size: 14px;
+
+    opacity: 0.9;
+}
+
+
+/* ================================
+   DONATION FORM
+================================ */
+
+.donation-form-card {
+    max-width: 750px;
+
+    margin: 0 auto 70px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 22px;
+
+    border: 1px solid #e1e9df;
+
+    box-shadow: 0 12px 35px rgba(30, 70, 40, 0.08);
+
+    transition: 0.3s;
+}
+
+.donation-form-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 18px 40px rgba(30, 70, 40, 0.11);
+}
+
+.donation-form-card h2 {
+    font-size: 28px;
+
+    margin-bottom: 10px;
+}
+
 .donation-form-card > p {
     color: #718078;
+
     margin-bottom: 30px;
+
     line-height: 1.6;
 }
 
 #donationForm {
     display: flex;
+
     flex-direction: column;
 }
 
 #donationForm label {
     font-size: 14px;
+
     font-weight: bold;
+
     color: #365443;
+
     margin-bottom: 8px;
 }
 
 #donationForm input,
 #donationForm textarea {
     width: 100%;
+
     padding: 14px 16px;
+
     margin-bottom: 22px;
 
     border: 1px solid #d7e1d5;
+
     border-radius: 10px;
 
     background: #fafcf9;
 
     font-size: 15px;
+
     font-family: Arial, sans-serif;
 
     outline: none;
@@ -317,46 +546,32 @@ body {
 #donationForm input:focus,
 #donationForm textarea:focus {
     border-color: #3c9b5d;
+
     background: white;
-    box-shadow: 0 0 0 3px rgba(60, 155, 93, 0.1);
+
+    box-shadow: 0 0 0 4px rgba(60, 155, 93, 0.1);
 }
 
 #donationForm textarea {
     resize: vertical;
+
     min-height: 120px;
 }
 
 #donationForm .primary-btn {
     border: none;
+
     cursor: pointer;
+
     font-size: 15px;
+
     align-self: flex-start;
 }
 
 
-/* =========================
-   DONATION MOBILE
-========================= */
-
-@media (max-width: 800px) {
-
-    .donation-form-card {
-        padding: 25px;
-        margin-bottom: 40px;
-    }
-
-    .donation-form-card h2 {
-        font-size: 24px;
-    }
-
-    #donationForm .primary-btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-/* =========================
+/* ================================
    FIND FOOD
-========================= */
+================================ */
 
 .food-section {
     margin-bottom: 70px;
@@ -364,8 +579,11 @@ body {
 
 .food-header {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
     margin-bottom: 25px;
 }
 
@@ -375,41 +593,111 @@ body {
 
 #refreshBtn {
     border: none;
+
     background: #287a45;
+
     color: white;
+
     padding: 11px 18px;
+
     border-radius: 9px;
+
     cursor: pointer;
+
     font-size: 14px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
 }
 
 #refreshBtn:hover {
     background: #1e6036;
+
+    transform: translateY(-3px);
 }
 
 #foodList {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 25px;
 }
 
+
+/* ================================
+   FOOD CARD
+================================ */
+
 .food-card {
     background: white;
-    border: 1px solid #e2e9df;
+
+    border: 1px solid #e1e9df;
+
     border-radius: 18px;
+
     padding: 25px;
+
     display: flex;
+
     gap: 20px;
+
     box-shadow: 0 8px 25px rgba(30, 70, 40, 0.06);
-    transition: 0.3s;
+
+    transition: 0.35s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.food-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background: #3c9b5d;
 }
 
 .food-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-7px);
+
+    box-shadow: 0 18px 35px rgba(30, 70, 40, 0.12);
 }
 
 .food-icon {
-    font-size: 42px;
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #edf7ef;
+
+    border-radius: 15px;
+
+    font-size: 30px;
+
+    transition: 0.3s;
+}
+
+.food-card:hover .food-icon {
+    transform: scale(1.08) rotate(4deg);
+}
+
+.food-content {
+    flex: 1;
 }
 
 .food-content h2 {
@@ -418,7 +706,9 @@ body {
 
 .food-content p {
     color: #65776b;
+
     margin-bottom: 8px;
+
     line-height: 1.5;
 }
 
@@ -426,8 +716,52 @@ body {
     margin-top: 15px;
 }
 
+
+/* ================================
+   CLAIM BUTTON
+================================ */
+
+.claim-btn {
+    margin-top: 15px;
+
+    border: none;
+
+    background: #287a45;
+
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.claim-btn:hover {
+    background: #1e6036;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 18px rgba(40, 122, 69, 0.2);
+}
+
+
+/* ================================
+   STATES
+================================ */
+
 .loading {
     color: #65776b;
+
+    text-align: center;
+
+    padding: 30px;
 }
 
 .error {
@@ -436,23 +770,123 @@ body {
 
 .no-food {
     background: white;
+
     text-align: center;
+
     padding: 50px;
+
     border-radius: 18px;
+
     border: 1px solid #e2e9df;
 }
 
 .no-food-icon {
     font-size: 50px;
+
     margin-bottom: 15px;
 }
 
 .no-food p {
     color: #65776b;
+
     margin-top: 10px;
 }
 
+
+/* ================================
+   ANIMATION
+================================ */
+
+@keyframes welcomeAnimation {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
 @media (max-width: 800px) {
+
+    .dashboard-nav {
+        flex-direction: column;
+
+        gap: 18px;
+
+        padding: 16px 5%;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 15px;
+    }
+
+    .dashboard-container {
+        width: 90%;
+    }
+
+    .welcome-section {
+        padding: 55px 0 45px;
+    }
+
+    .welcome-section h1 {
+        font-size: 42px;
+
+        letter-spacing: -1px;
+    }
+
+    .welcome-section p:not(.small-title) {
+        font-size: 16px;
+    }
+
+    .dashboard-buttons {
+        flex-direction: column;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding: 30px 20px;
+    }
+
+    .stats-section h2 {
+        font-size: 32px;
+    }
+
+    .donation-form-card {
+        padding: 25px;
+    }
+
+    #donationForm .primary-btn {
+        width: 100%;
+
+        text-align: center;
+    }
 
     #foodList {
         grid-template-columns: 1fr;
@@ -463,22 +897,14 @@ body {
     }
 
     .food-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
         gap: 15px;
     }
-}
-.claim-btn {
-    margin-top: 15px;
-    border: none;
-    background: #287a45;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 9px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-}
 
-.claim-btn:hover {
-    background: #1e6036;
-    transform: translateY(-2px);
+    #refreshBtn {
+        width: 100%;
+    }
 }

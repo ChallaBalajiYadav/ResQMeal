@@ -1,90 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sign Up | ResQMeal</title>
-
     <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
 
-    <div class="login-container">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
 
-        <div class="login-card">
+    <main class="login-container">
+        <section class="login-card">
 
-            <div class="logo">
-                🍃 ResQMeal
+            <div class="floating-leaf leaf-one">🍃</div>
+            <div class="floating-leaf leaf-two">🌿</div>
+
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🍃</span>
+                <span>ResQMeal</span>
+            </a>
+
+            <div class="heading">
+                <span class="eyebrow">JOIN RESQMEAL</span>
+                <h1>Create Account<span class="heading-dot">.</span></h1>
+                <p class="subtitle">
+                    Join our community to help rescue surplus food and feed people in need.
+                </p>
             </div>
 
-            <h1>Create Account</h1>
-
-            <p class="subtitle">
-                Join the ResQMeal community.
-            </p>
-
+            <!-- Notification / Alert Message -->
+            <div id="authAlert" class="auth-alert" role="alert"></div>
 
             <form id="signupForm">
 
-                <label>Full Name</label>
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Your full name"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
 
-                <input
-                    type="text"
-                    id="name"
-                    placeholder="Enter your name"
-                    required
-                >
+                <div class="input-group">
+                    <label for="signupEmail">Email address</label>
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+                    <span id="emailHint" class="form-hint">Please enter a valid, active email address.</span>
+                </div>
 
+                <div class="input-group">
+                    <label for="signupPassword">Password</label>
+                    <input
+                        type="password"
+                        id="signupPassword"
+                        placeholder="Create a password (min. 6 characters)"
+                        minlength="6"
+                        autocomplete="new-password"
+                        required
+                    >
+                    <span class="form-hint">Must be at least 6 characters long.</span>
+                </div>
 
-                <label>Email</label>
-
-                <input
-                    type="email"
-                    id="signupEmail"
-                    placeholder="Enter your email"
-                    required
-                >
-
-
-                <label>Password</label>
-
-                <input
-                    type="password"
-                    id="signupPassword"
-                    placeholder="Create a password"
-                    required
-                >
-
-
-                <button type="submit">
-                    Create Account →
+                <button type="submit" id="signupSubmitBtn" class="login-button">
+                    <span>Create Account</span>
+                    <span class="button-arrow">→</span>
                 </button>
 
             </form>
 
+            <div class="divider">
+                <span>OR CONTINUE WITH</span>
+            </div>
+
+            <!-- Google Login / Signup -->
+            <button
+                type="button"
+                id="googleLoginBtn"
+                class="google-login-btn"
+            >
+                <svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true">
+                    <path fill="#EA4335"
+                        d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.5 13.3l7.8 6.1C12.2 13.1 17.6 9.5 24 9.5z"/>
+                    <path fill="#4285F4"
+                        d="M46.1 24.5c0-1.6-.2-3.2-.5-4.7H24v9h12.4c-.6 3-2.3 5.5-4.8 7.2l7.7 6C43.8 37.8 46.1 31.6 46.1 24.5z"/>
+                    <path fill="#FBBC05"
+                        d="M10.3 28.6A14.4 14.4 0 0 1 9.5 24c0-1.6.3-3.1.8-4.6l-7.8-6.1A23.8 23.8 0 0 0 0 24c0 3.9.9 7.5 2.5 10.7z"/>
+                    <path fill="#34A853"
+                        d="M24 48c6.4 0 11.8-2.1 15.7-6l-7.7-6c-2.1 1.4-4.8 2.2-8 2.2-6.4 0-11.8-4.3-13.7-10.1l-7.8 6.1C6.5 42.6 14.6 48 24 48z"/>
+                </svg>
+
+                <span>Continue with Google</span>
+                <span class="google-arrow">↗</span>
+            </button>
 
             <p class="signup-text">
                 Already have an account?
-                <a href="login.html">Login</a>
+                <a href="login.html">Login here</a>
             </p>
 
+            <div class="bottom-link">
+                <a href="index.html">← Back to Home</a>
+            </div>
 
-            <a href="index.html" class="back-home">
-                ← Back to Home
-            </a>
+            <div class="card-footer">
+                <span class="footer-leaf">♻</span>
+                Together, we can reduce food waste.
+            </div>
 
-        </div>
+        </section>
+    </main>
 
-    </div>
-
-
+    <!-- Supabase Library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Supabase Configuration -->
     <script src="js/supabase.js"></script>
+
+    <!-- Authentication Logic -->
     <script src="js/auth.js"></script>
 
 </body>
-
 </html>
